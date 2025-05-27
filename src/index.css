@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/*
+//#1F1F1F - #0B0B0E - #1F1E24 primary
+
+//#6C5CE7 Ascent-1-electric purple
+//#00CEC9 Ascent-2-aqua neon
+
+//#FFFFFF text-white
+//#AAAAAA secondary-text
+*/
+
+
+::-webkit-scrollbar{
+    width: 7px;
+    height: 7px;
+
+}
+
+::-webkit-scrollbar-thumb{
+    background: #1a1919;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #6C5CE7;
+    border-radius: 10px;
+}
