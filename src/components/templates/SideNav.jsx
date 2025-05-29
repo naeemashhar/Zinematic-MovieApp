@@ -22,7 +22,7 @@ const SideNav = () => {
           New Feeds
         </h1>
 
-        <Link className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
+        <Link to={"/trending"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
           <i className="mr-2 ri-fire-fill"></i>Trending
         </Link>
         <Link className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">

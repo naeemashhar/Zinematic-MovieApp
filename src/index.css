@@ -37,7 +37,7 @@ select {
   background: #27272a;
   background-image: none;
   flex: 1;
-  padding: 0 0.9em;
+  padding: 0  0.7em;
   color: #aaaaaa;
   cursor: pointer;
   font-size: 0.85em;
