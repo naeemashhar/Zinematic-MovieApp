@@ -25,16 +25,16 @@ const SideNav = () => {
         <Link to={"/trending"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
           <i className="mr-2 ri-fire-fill"></i>Trending
         </Link>
-        <Link className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
+        <Link to={"/popular"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
           <i className="mr-2 ri-sparkling-2-fill"></i>Popular
         </Link>
-        <Link className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
+        <Link to={"/movies"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
           <i className="mr-2 ri-clapperboard-fill"></i>Movies
         </Link>
-        <Link className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
-          <i className="mr-2 ri-tv-fill"></i>TV Shows
+        <Link to={"/tvShows"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
+          <i className="mr-2 ri-tv-2-fill"></i>TV Shows
         </Link>
-        <Link className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
+        <Link to={"/peoples"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
           <i className="mr-2 ri-user-search-fill"></i>People
         </Link>
       </nav>
@@ -46,10 +46,10 @@ const SideNav = () => {
           Website Information
         </h1>
 
-        <Link className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
+        <Link to={"/about"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
           <i className="mr-2 ri-information-2-fill"></i>About
         </Link>
-        <Link className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
+        <Link to={"/contact-us"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
           <i className="mr-2 ri-phone-fill"></i>Contact Us
         </Link>
       </nav>

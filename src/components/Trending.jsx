@@ -8,6 +8,7 @@ import Loader from "./Loader";
 import InfiniteScroll from "react-infinite-scroll-component"; //for infinite scroll
 
 const Trending = () => {
+
   const navigate = useNavigate();
 
   const [category, setcategory] = useState("all");
@@ -16,7 +17,10 @@ const Trending = () => {
   const[page, setpage]=useState(1); //for infinite scroll
   const[hasMore,sethasMore]=useState(true);
 
+  document.title = "Zinematic | Trending | " + category.toUpperCase(); 
+
   const GetTrending = async () => {
+
     try {
       const { data } = await axios.get(`/trending/${category}/${duration}?page=${page}`);
       
@@ -43,7 +47,6 @@ const Trending = () => {
     }
   }
 
-  console.log(trending);
 
   useEffect(() => {
     refreshhandler();

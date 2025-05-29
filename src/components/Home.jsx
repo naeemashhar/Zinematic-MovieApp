@@ -27,6 +27,7 @@ const Home = () => {
     }
   };
 
+
   const GetHorizontalCard = async () => {
     try {
       const { data } = await axios.get(`/trending/${category}/day`);

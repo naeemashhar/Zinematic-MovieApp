@@ -17,6 +17,7 @@ const TopNav = () => {
     }
   };
 
+
   useEffect(() => {
     GetSearch();
   }, [val]);
@@ -49,6 +50,7 @@ const TopNav = () => {
               <span>
                 {s.name || s.title || s.original_name || s.original_title}
               </span>
+
             </Link>
           ))}
       </div>
