@@ -3,24 +3,20 @@ import { useNavigate } from "react-router-dom";
 import axios from "../utils/axios";
 import Loader from "./Loader";
 import TopNav from "./templates/TopNav";
-import Dropdown from "./templates/Dropdown";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Cards from "./templates/Cards";
 
 const People = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const [category, setcategory] = useState("popular");
+  const [person, setperson] = useState([]);
+  const [page, setpage] = useState(1); //for infinite scroll
+  const [hasMore, sethasMore] = useState(true);
 
-    const [category, setcategory] = useState("popular");
-    const [person, setperson] = useState([]);
-    const [page, setpage] = useState(1); //for infinite scroll
-    const [hasMore, sethasMore] = useState(true);
-    
-    
-    document.title = "Zinematic | person Shows | " + category.toUpperCase(); 
+  document.title = "Zinematic | person Shows | " + category.toUpperCase();
 
-
-    const GetPerson = async () => {
+  const GetPerson = async () => {
     try {
       const { data } = await axios.get(`/person/${category}?page=${page}`);
 
@@ -45,17 +41,14 @@ const People = () => {
       GetPerson();
     }
   };
-  console.log(person)
 
   useEffect(() => {
     refreshhandler();
   }, [category]);
 
-
-
   return person.length > 0 ? (
     <div className="w-screen h-screen ">
-      <div className="px-[4%] py-[1%] w-full flex items-center justify-between">
+      <div className="px-[4%] py-1 w-full flex items-center justify-between fixed top-0 left-0 z-40 backdrop-blur-md bg-[#0B0B0E]/80">
         <h1 className=" text-xl font-semibold text-[#AAAAAA]">
           <i
             onClick={() => navigate(-1)}
@@ -65,26 +58,25 @@ const People = () => {
         </h1>
         <div className="w-[80%] flex items-center">
           <TopNav />
-
-          
-  
-          
         </div>
       </div>
-
-      <InfiniteScroll
-        className="bg-[#0B0B0E]"
-        dataLength={person.length}
-        next={GetPerson()}
-        hasMore={hasMore}
-        loader={<h1>Loading...</h1>}
-      >
-        <Cards data={person} title={category} />
-      </InfiniteScroll>
+      
+      <div className="pt-[10vh] bg-[#0B0B0E]">
+        <InfiniteScroll
+          className="bg-[#0B0B0E]"
+          dataLength={person.length}
+          next={GetPerson}
+          hasMore={hasMore}
+          loader={<h1>Loading...</h1>}
+        >
+          <Cards data={person} title="person" />
+        </InfiniteScroll>
+      </div>
+      
     </div>
   ) : (
     <Loader />
   );
-}
+};
 
-export default People
+export default People;

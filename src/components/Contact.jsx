@@ -34,11 +34,11 @@ const Contact = () => {
 
               <nav className="flex flex-col ">
                 <Link className="text-lg">
-                  <i className="mr-2 hover:text-[#6c5ce7] ri-instagram-line"></i>
+                  <i className="mr-2 text-[#6c5ce7] hover:text-white ri-instagram-line"></i>
                   <span className="hover:text-[#6c5ce7]">Instagram</span>
                 </Link>
                 <Link className="text-lg">
-                  <i className="mr-2 hover:text-[#6c5ce7] ri-linkedin-box-fill"></i>
+                  <i className="mr-2 text-[#6c5ce7] hover:text-white ri-linkedin-box-fill"></i>
                   <span className="hover:text-[#6c5ce7]">Linkedin</span>
                 </Link>
               </nav>
@@ -51,13 +51,13 @@ const Contact = () => {
 
               <nav className="flex flex-col ">
                 <Link className="text-lg ">
-                  <i className="mr-2 hover:text-[#6c5ce7] ri-home-5-line "></i>
+                  <i className="mr-2 text-[#6c5ce7] hover:text-white ri-home-5-line "></i>
                   <span className="hover:text-[#6c5ce7] hover:scale-115">
                     Home
                   </span>
                 </Link>
                 <Link className="text-lg">
-                  <i className="mr-2 hover:text-[#6c5ce7] ri-information-line"></i>
+                  <i className="mr-2 text-[#6c5ce7] hover:text-white ri-information-line"></i>
                   <span className="hover:text-[#6c5ce7]">About</span>
                 </Link>
               </nav>

@@ -8,45 +8,43 @@ import Loader from "./Loader";
 import InfiniteScroll from "react-infinite-scroll-component"; //for infinite scroll
 
 const Trending = () => {
-
   const navigate = useNavigate();
 
   const [category, setcategory] = useState("all");
   const [duration, setduration] = useState("day");
   const [trending, settrending] = useState([]);
-  const[page, setpage]=useState(1); //for infinite scroll
-  const[hasMore,sethasMore]=useState(true);
+  const [page, setpage] = useState(1); //for infinite scroll
+  const [hasMore, sethasMore] = useState(true);
 
-  document.title = "Zinematic | Trending | " + category.toUpperCase(); 
+  document.title = "Zinematic | Trending | " + category.toUpperCase();
 
   const GetTrending = async () => {
-
     try {
-      const { data } = await axios.get(`/trending/${category}/${duration}?page=${page}`);
-      
-      if(data.results.length > 0){
-        settrending((prevstate) =>[...prevstate, ...data.results] );
-      
+      const { data } = await axios.get(
+        `/trending/${category}/${duration}?page=${page}`
+      );
+
+      if (data.results.length > 0) {
+        settrending((prevstate) => [...prevstate, ...data.results]);
+
         setpage(page + 1);
-      }else{
+      } else {
         sethasMore(false);
-      }      
+      }
     } catch (err) {
       console.log("Error fetching search results:", err);
     }
   };
-  
 
   const refreshhandler = () => {
-    if (trending.length === 0){
+    if (trending.length === 0) {
       GetTrending();
-    }else {
-       setpage(1);
-       settrending([]);
-       GetTrending();
+    } else {
+      setpage(1);
+      settrending([]);
+      GetTrending();
     }
-  }
-
+  };
 
   useEffect(() => {
     refreshhandler();
@@ -54,7 +52,7 @@ const Trending = () => {
 
   return trending.length > 0 ? (
     <div className="w-screen h-screen ">
-      <div className="px-[4%] py-[1%] w-full flex items-center justify-between">
+      <div className="px-[4%] py-1 w-full flex items-center justify-between fixed top-0 left-0 z-40 backdrop-blur-md bg-[#0B0B0E]/80">
         <h1 className=" text-xl font-semibold text-[#AAAAAA]">
           <i
             onClick={() => navigate(-1)}
@@ -79,16 +77,17 @@ const Trending = () => {
         </div>
       </div>
 
-      <InfiniteScroll
-        className="bg-[#0B0B0E]"
-        dataLength={trending.length}
-        next={GetTrending()}
-        hasMore={hasMore}
-        loader={<h1>Loading...</h1>}
-      >
-        <Cards data={trending} title={category} />
-      </InfiniteScroll>
-
+      <div className="pt-[10vh] bg-[#0B0B0E]">
+        <InfiniteScroll
+          className="bg-[#0B0B0E]"
+          dataLength={trending.length}
+          next={GetTrending}
+          hasMore={hasMore}
+          loader={<h1>Loading...</h1>}
+        >
+          <Cards data={trending} title={category} />
+        </InfiniteScroll>
+      </div>
     </div>
   ) : (
     <Loader />

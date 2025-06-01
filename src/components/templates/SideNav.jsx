@@ -28,13 +28,13 @@ const SideNav = () => {
         <Link to={"/popular"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
           <i className="mr-2 ri-sparkling-2-fill"></i>Popular
         </Link>
-        <Link to={"/movies"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
+        <Link to={"/movie"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
           <i className="mr-2 ri-clapperboard-fill"></i>Movies
         </Link>
-        <Link to={"/tvShows"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
+        <Link to={"/tvShow"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
           <i className="mr-2 ri-tv-2-fill"></i>TV Shows
         </Link>
-        <Link to={"/peoples"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
+        <Link to={"/persons"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
           <i className="mr-2 ri-user-search-fill"></i>People
         </Link>
       </nav>

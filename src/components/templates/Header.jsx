@@ -21,7 +21,7 @@ const Header = ({ data }) => {
 
       <p className="w-[70%] mt-3 mb-2 text-white">
         {data.overview.slice(0, 200)} ...
-        <Link className="text-blue-400"> more </Link>
+        <Link to={`/${data.media_type}/details/${data.id}`} className="text-blue-400"> more </Link>
       </p>
 
       <p className="text-[#AAAAAA] flex gap-x-2">
