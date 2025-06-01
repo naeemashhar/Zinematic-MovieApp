@@ -12,7 +12,7 @@ const HorizontalCards = ({ data }) => {
           
           <Link to={`/${d.media_type}/details/${d.id} `} key={i} className="min-w-[16%] h-[40vh] rounded overflow-hidden mr-5 mb-3 bg-zinc-900 hover:bg-[#6C5CE7] duration-300 hover:scale-95">
             <img
-              className="w-full h-[55%]  object-cover shadow-lg "
+              className="w-full h-[55%]  object-cover object-top shadow-lg "
               src={`https://image.tmdb.org/t/p/original/${
                 d.backdrop_path || d.profile_path || d.poster_path
               })`}
@@ -31,7 +31,8 @@ const HorizontalCards = ({ data }) => {
             </div>
           </Link>
 
-        )): <h1 className="text-3xl text-white font-black text-center mt-5">No Data Found</h1> }
+        )): <h1 className="text-3xl text-white font-black text-center mt-5">No Data Found</h1> 
+        }
       </div>
     
   );

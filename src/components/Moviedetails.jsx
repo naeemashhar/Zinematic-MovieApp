@@ -11,7 +11,6 @@ const Moviedetails = () => {
   const { id } = useParams();
 
   const { info } = useSelector((state) => state.movie);
-  console.log(info);
 
   const dispatch = useDispatch();
 
@@ -190,7 +189,7 @@ const Moviedetails = () => {
       />
 
       <Outlet />
-      
+
     </div>
   ) : (
     <Loader />

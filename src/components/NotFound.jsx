@@ -4,6 +4,7 @@ import l from "/404.gif";
 const NotFound = () => {
 
     const navigate = useNavigate();
+    
 
   return (
     <div className="w-full h-screen flex flex-col md:flex-row items-center justify-center bg-black text-gray-200 px-6 px-[10%]">
