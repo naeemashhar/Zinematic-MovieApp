@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { asyncloadpeople, removepeople } from "../store/actions/peopleActions";
 import {
   Link,
-  Outlet,
-  useLocation,
   useNavigate,
   useParams,
 } from "react-router-dom";
@@ -13,7 +11,6 @@ import HorizontalCards from "./templates/HorizontalCards";
 import Dropdown from "./templates/Dropdown";
 
 const Peopledetails = () => {
-  const { pathname } = useLocation(); //for playing trailer
 
   const { id } = useParams();
 
@@ -189,7 +186,7 @@ const Peopledetails = () => {
               </li>
             ))}
           </div>
-          
+
         </div>
       </div>
     </div>
