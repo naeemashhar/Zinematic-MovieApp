@@ -11,13 +11,13 @@ const SideNav = () => {
           style={{
             textShadow: " 0 2px 4px rgba(0, 0, 0, 0.6)",
           }}
-          className="oxanium  text-4xl text-white font-bold "
+          className="Oxanium-ExtraBold  text-4xl text-white font-bold "
         >
           Zinematic.
         </span>
       </h1>
 
-      <nav className="oxanium-l  flex flex-col text-lg gap-3 text-[#AAAAAA] ">
+      <nav className="Oxanium-SemiBold  flex flex-col text-lg gap-3 text-[#AAAAAA] ">
         <h1 className="text-white font-semibold text-xl mt-8 mb-3">
           New Feeds
         </h1>
@@ -41,7 +41,7 @@ const SideNav = () => {
 
       <hr className="border-none mt-1 h-[1px] bg-[#AAAAAA]" />
 
-      <nav className="oxanium-l  flex flex-col text-lg gap-3 text-[#AAAAAA]">
+      <nav className="Oxanium-SemiBold  flex flex-col text-lg gap-3 text-[#AAAAAA]">
         <h1 className="text-white font-semibold text-xl mt-6 mb-1">
           Website Information
         </h1>

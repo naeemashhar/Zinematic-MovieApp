@@ -51,7 +51,7 @@ const Home = () => {
         <Header data={wallpaper} />
 
         <div className="p-5 flex justify-between">
-          <h1 className="oxanium-l text-[3vh] text-[#AAAAAA] ">
+          <h1 className="Oxanium-SemiBold text-[3vh] text-[#AAAAAA] ">
             <span>T</span>
             <span className="hover:uppercase duration-300 hover:text-xl">r</span>e
             <span className="hover:uppercase duration-300 hover:text-xl">n</span>d

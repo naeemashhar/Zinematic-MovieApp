@@ -99,47 +99,47 @@ const Peopledetails = () => {
           </div>
 
           {/* personal-info */}
-          <h1 className="poppins-semibold text-xl my-3 text-[#AAAAAA]">
+          <h1 className="Poppins-SemiBold text-xl my-3 text-[#AAAAAA]">
             Personal Information
           </h1>
 
-          <h1 className="poppins-medium text-lg text-[#AAAAAA]">Known For :</h1>
-          <h1 className="poppins-regular text-[#AAAAAA]">
+          <h1 className="Poppins-Medium text-lg text-[#AAAAAA]">Known For :</h1>
+          <h1 className="Poppins-Regular text-[#AAAAAA]">
             {info.details.known_for_department}
           </h1>
 
-          <h1 className="poppins-medium text-lg mt-2 text-[#AAAAAA]">
+          <h1 className="Poppins-Medium text-lg mt-2 text-[#AAAAAA]">
             Gender :
           </h1>
-          <h1 className="poppins-regular text-[#AAAAAA]">
+          <h1 className="Poppins-Regular text-[#AAAAAA]">
             {info.details.gender === 2 ? "Male" : "Female"}
           </h1>
 
-          <h1 className="poppins-medium text-lg mt-2 text-[#AAAAAA]">
+          <h1 className="Poppins-Medium text-lg mt-2 text-[#AAAAAA]">
             Birthday :
           </h1>
-          <h1 className="poppins-regular text-[#AAAAAA]">
+          <h1 className="Poppins-Regular text-[#AAAAAA]">
             {info.details.birthday}
           </h1>
 
-          <h1 className="poppins-medium text-lg mt-2 text-[#AAAAAA]">
+          <h1 className="Poppins-Medium text-lg mt-2 text-[#AAAAAA]">
             Place of Birth :
           </h1>
-          <h1 className="poppins-regular text-[#AAAAAA]">
+          <h1 className="Poppins-Regular text-[#AAAAAA]">
             {info.details.place_of_birth}
           </h1>
 
-          <h1 className="poppins-medium text-lg mt-2 text-[#AAAAAA]">
+          <h1 className="Poppins-Medium text-lg mt-2 text-[#AAAAAA]">
             Death-Day :
           </h1>
-          <h1 className="poppins-regular text-[#AAAAAA]">
+          <h1 className="Poppins-Regular text-[#AAAAAA]">
             {info.details.deathday ? info.details.deathday : "Alive"}
           </h1>
 
-          <h1 className="poppins-medium text-lg mt-2 text-[#AAAAAA]">
+          <h1 className="Poppins-Medium text-lg mt-2 text-[#AAAAAA]">
             Also Known As :
           </h1>
-          <h1 className="poppins-regular text-[#AAAAAA]">
+          <h1 className="Poppins-Regular text-[#AAAAAA]">
             {info.details.also_known_as.join(", ")
               ? info.details.also_known_as.join(", ")
               : "None"}

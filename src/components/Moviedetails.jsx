@@ -62,7 +62,7 @@ const Moviedetails = () => {
         </a>
 
         <a
-          className='poppins-semibold className=" px-3 rounded text-yellow-400 border-1 border-yellow-400 text-lg hover:bg-amber-400 hover:text-black hover:scale-95 duration-300'
+          className='Poppins-Bold className=" px-3 rounded text-yellow-400 border-1 border-yellow-400 text-lg hover:bg-amber-400 hover:text-black hover:scale-95 duration-300'
           target="_blank"
           title="IMDb"
           href={`https://www.imdb.com/title/${info.externalid.imdb_id}`}

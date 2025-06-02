@@ -4,7 +4,7 @@ const initialState = {
   info: null,
 };
 
-export const movieSlice = createSlice({
+export const MovieSlice = createSlice({
   name: "movie",
   initialState,
   reducers: {
@@ -20,6 +20,6 @@ export const movieSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { loadmovie, removemovie } = movieSlice.actions;
+export const { loadmovie, removemovie } = MovieSlice.actions;
 
-export default movieSlice.reducer;
+export default MovieSlice.reducer;

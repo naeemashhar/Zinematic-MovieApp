@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import noimg from "/noim.png"
 
@@ -19,7 +18,7 @@ const Cards = ({ data, title }) => {
             />
 
             <div className="flex justify-center ">
-              <h1 className="poppins-regular text-[1.3vw] text-[#AAAAAA] mt-3  hover:text-[#6c5ce7] hover:poppins-medium hover:scale-95 transition-all duration-300 ">
+              <h1 className="Poppins-Regular text-[1.3vw] text-[#AAAAAA] mt-3  hover:text-[#6c5ce7] hover:poppins-medium hover:scale-95 transition-all duration-300 ">
                 {c.name || c.title || c.original_name || c.original_title}
               </h1>
 
@@ -30,7 +29,7 @@ const Cards = ({ data, title }) => {
                     <h1 className="poppins-semibold text-[1.3vw] ml-10 text-yellow-500 mt-3">
                       {c.vote_average !== 0 ? c.vote_average.toFixed(1) : "N/A"}
                     </h1>
-                    <h3 className="poppins-regular text-xs ml-10 text-yellow-500 ">
+                    <h3 className="Poppins-Regular text-xs ml-10 text-yellow-500 ">
                       Rating
                     </h3>
                   </div>

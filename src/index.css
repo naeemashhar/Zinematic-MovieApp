@@ -1,5 +1,67 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 @import "tailwindcss";
+
+@font-face {
+  font-family: Poppins;
+  src: url(../public/fonts/Poppins/Poppins-Black.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../public/fonts/Poppins/Poppins-Bold.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../public/fonts/Poppins/Poppins-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../public/fonts/Poppins/Poppins-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../public/fonts/Poppins/Poppins-Light.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../public/fonts/Poppins/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../public/fonts/Poppins/Poppins-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../public/fonts/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../public/fonts/Poppins/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../public/fonts/Poppins/Poppins-Thin.ttf);
+}
+
+@font-face {
+  font-family: Oxanium;
+  src: url(../public/fonts/Oxanium/Oxanium-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: Oxanium;
+  src: url(../public/fonts/Oxanium/Oxanium-SemiBold.ttf);
+}
+
+
 /*
 //#1F1F1F - #0B0B0E - #1F1E24 primary
 
@@ -45,7 +107,7 @@ select {
   color: #aaaaaa;
   cursor: pointer;
   font-size: 0.75em;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins-Semibold" sans-serif;
   transition: background 0.25s ease, color 0.25s ease;
   height: 100%;
 }
@@ -213,13 +275,13 @@ select::-ms-expand {
 // <weight>: Use a value from 200 to 800
 // <uniquifier>: Use a unique and descriptive class name*/
 
-.oxanium {
+.Oxanium-ExtraBold {
   font-family: "Oxanium", sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
 }
-.oxanium-l {
+.Oxanium-SemiBold {
   font-family: "Oxanium", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
