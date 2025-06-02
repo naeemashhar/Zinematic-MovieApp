@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncloadtv, removetv } from "../store/actions/tvActions";
+import noimg from "/noim.png";
+
 import {
   Link,
   Outlet,
@@ -191,23 +193,25 @@ const Tvdetails = () => {
       </h1>
 
       <div className="w-[100%] mb-6 p-3 flex overflow-y-hidden ">
-        {info.details.seasons.length > 0 ? info.details.seasons.map((s, i) => (
-          <div className="w-[15vh] mr-[9%]">
-            <img
-            key={i}
-              className="h-[39vh] min-w-[13vw] object-cover rounded shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:scale-95 transition-all duration-300"
-              src={`https://image.tmdb.org/t/p/original/${s.poster_path}`}
-              alt=""
-            />
-            <h1 className="poppins-semibold  text-center text-xl text-[#AAAAAA] mt-3">
-              {s.name ||
-                s.title ||
-                s.original_name ||
-                s.original_title}
-            </h1>
-          </div>
-        )) : <h1 className="text-3xl text-white font-black text-center mt-5">No Data Found</h1>
-      }
+        {info.details.seasons.length > 0 ? (
+          info.details.seasons.map((s, i) => (
+            <div className="w-[15vh] mr-[9%]">
+              <img
+                key={i}
+                className="h-[39vh] min-w-[13vw] object-cover rounded shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:scale-95 transition-all duration-300"
+                src={s.poster_path ? `https://image.tmdb.org/t/p/original/${s.poster_path}`:noimg}
+                alt=""
+              />
+              <h1 className="poppins-semibold  text-center text-xl text-[#AAAAAA] mt-3">
+                {s.name || s.title || s.original_name || s.original_title}
+              </h1>
+            </div>
+          ))
+        ) : (
+          <h1 className="text-3xl text-white font-black text-center mt-5">
+            No Data Found
+          </h1>
+        )}
       </div>
 
       {/*p-5 Recommendation and similar stuff */}

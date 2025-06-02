@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import noimg from "/noim.png"
+
 
 const Cards = ({ data, title }) => {
   return (
@@ -9,9 +11,10 @@ const Cards = ({ data, title }) => {
           <Link to={`/${c.media_type || title}/details/${c.id} `} key={i} className="relative w-[25vh] mr-[5%] mb-[5%]">
             <img
               className="h-[40vh] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:scale-95 transition-all duration-300"
-              src={`https://image.tmdb.org/t/p/original/${
+              src={c.poster_path || c.backdrop_path || c.profile_path ? `https://image.tmdb.org/t/p/original/${
                 c.poster_path || c.backdrop_path || c.profile_path
-              }`}
+              }`:noimg
+            }
               alt=""
             />
 

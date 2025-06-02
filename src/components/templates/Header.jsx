@@ -30,7 +30,7 @@ const Header = ({ data }) => {
         <i className="text-yellow-500 ri-star-half-fill"></i>{(data.vote_average.toFixed(1))}
       </p>
 
-      <Link className="p-3 mt-3 text-sm font-semibold rounded text-white bg-[#6C5CE7] hover:scale-95 duration-900">
+      <Link to={`/${data.media_type}/details/${data.id}/trailer`} className="p-3 mt-3 text-sm font-semibold rounded text-white bg-[#6C5CE7] hover:scale-95 duration-900">
         Watch Trailer
       </Link>
     </div>
