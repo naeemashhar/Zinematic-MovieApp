@@ -9,8 +9,12 @@ import {
 import Loader from "./Loader";
 import HorizontalCards from "./templates/HorizontalCards";
 import Dropdown from "./templates/Dropdown";
+import noimg from "/noim.png";
+
 
 const Peopledetails = () => {
+
+  document.title = "Zinematic | Person | Details";
 
   const { id } = useParams();
 
@@ -46,7 +50,7 @@ const Peopledetails = () => {
         <div className="w-[20%] overflow-hidden ">
           <img
             className=" h-[41vh] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:scale-95 transition-all duration-300"
-            src={`https://image.tmdb.org/t/p/original/${info.details.profile_path}`}
+            src={info.details.profile_path ? `https://image.tmdb.org/t/p/original/${info.details.profile_path}`:noimg}
             alt=""
           />
           <hr className="mt-5 mb-2 border-1 text-zinc-200" />

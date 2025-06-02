@@ -6,6 +6,10 @@ import Loader from "./Loader";
 import HorizontalCards from "./templates/HorizontalCards";
 
 const Moviedetails = () => {
+
+  document.title = "Zinematic | Movies | Details";
+
+
   const { pathname } = useLocation(); //for playing trailer
 
   const { id } = useParams();
@@ -27,22 +31,22 @@ const Moviedetails = () => {
   return info ? (
     <div
       style={{
-        background: `linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.5),rgba(0,0,0,.7)), url(https://image.tmdb.org/t/p/original/${info.details.backdrop_path})`,
+        background: `linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.5),rgba(0,0,0,.7)),url(https://image.tmdb.org/t/p/original/${info.details.backdrop_path})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="relative w-screen h-fit px-[10%]"
+      className="relative w-screen h-fit px-[10%] bg-[#0B0B0E]"
     >
       {/*p-1 navigation */}
       <nav className="w-full h-[10vh] text-zinc-300 text-xl gap-10 flex items-center justify-start">
         <Link
           onClick={() => navigate(-1)}
-          className="hover:text-[#6c5ce7] hover:text-2xl scale-100 duration-300 ri-arrow-left-line"
+          className="hover:text-[#6c5ce7] ri-arrow-left-line"
         ></Link>
 
         <a target="_blank" href={info.details.homepage} title="movie-site">
-          <i className="ri-external-link-line hover:text-[#6c5ce7] hover:text-2xl scale-100 duration-300"></i>
+          <i className="ri-external-link-line hover:text-[#6c5ce7]"></i>
         </a>
 
         <a
@@ -50,11 +54,11 @@ const Moviedetails = () => {
           title="wiki"
           href={`https://www.wikidata.org/wiki/${info.externalid.wikidata_id}`}
         >
-          <i className="ri-earth-fill hover:text-[#6c5ce7] hover:text-2xl scale-100 duration-300"></i>
+          <i className="ri-earth-fill hover:text-[#6c5ce7]"></i>
         </a>
 
         <a href="/" title="Home">
-          <i className="ri-home-2-fill hover:text-[#6c5ce7] hover:text-2xl scale-100 duration-300"></i>
+          <i className="ri-home-2-fill hover:text-[#6c5ce7]"></i>
         </a>
 
         <a

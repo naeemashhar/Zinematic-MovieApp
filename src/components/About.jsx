@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import i from "/i.jpg"
 
 const About = () => {
@@ -93,9 +93,9 @@ const About = () => {
         <p className="text-lg mb-8">
           Join thousands discovering meaningful stories on Zinematic.
         </p>
-        <button className="px-8 py-4 bg-[#6c5ce7] text-white rounded-lg hover:bg-[#5a4bd4] transition">
+        <Link to={"/"} className="px-8 py-4 bg-[#6c5ce7] text-white rounded-lg hover:bg-[#5a4bd4] transition">
           Start Watching
-        </button>
+        </Link>
       </div>
       
 

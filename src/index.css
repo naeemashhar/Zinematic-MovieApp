@@ -10,6 +10,11 @@
 //#AAAAAA secondary-text
 */
 
+.sel::selection{
+  background-color: #6c5ce7;
+  color: #0B0B0E;
+}
+
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
@@ -24,8 +29,7 @@
   background: #6c5ce7;
   border-radius: 10px;
 }
-
-/*DropDownCSS*/
+/* DropDownCSS */
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -37,12 +41,15 @@ select {
   background: #27272a;
   background-image: none;
   flex: 1;
-  padding: 0  0.7em;
+  padding: 0 0.5em;
   color: #aaaaaa;
   cursor: pointer;
-  font-size: 0.85em;
+  font-size: 0.75em;
   font-family: "Poppins", sans-serif;
+  transition: background 0.25s ease, color 0.25s ease;
+  height: 100%;
 }
+
 select:focus,
 select:active {
   background: #aaaaaa;
@@ -56,37 +63,41 @@ select::-ms-expand {
 .select {
   position: relative;
   display: flex;
-  width: 18em;
-  height: 2.8em;
-  line-height: 3;
+  width: 11em;         /* reduced width */
+  height: 2em;         /* reduced height */
   background: #27272a;
   overflow: hidden;
   border-radius: 0.25em;
+  transition: background 0.25s ease;
+  align-items: center;
 }
+
 .select:focus-within {
-  background: #fff;
-}
-.select:focus-within::after {
-  transition: all;
   background: #aaaaaa;
-  color: #000;
 }
 
 .select::after {
   content: "\25BC";
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0 1em;
-  background: #27272a;
+  top: 50%;
+  right: 0.7em;
+  transform: translateY(-50%);
+  font-size: 0.6em;
+  background: transparent;
+  color: #aaaaaa;
   cursor: pointer;
   pointer-events: none;
-  transition: 0.25s all ease;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.select:focus-within::after {
+  color: #000;
 }
 
 .select:hover::after {
   color: #6c5ce7;
 }
+
 
 /*fonts*/
 .poppins-thin {

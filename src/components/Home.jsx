@@ -52,11 +52,12 @@ const Home = () => {
 
         <div className="p-5 flex justify-between">
           <h1 className="oxanium-l text-[3vh] text-[#AAAAAA] ">
-            <span className="hover:lowercase duration-300 hover:text-xl">T</span>
+            <span>T</span>
             <span className="hover:uppercase duration-300 hover:text-xl">r</span>e
             <span className="hover:uppercase duration-300 hover:text-xl">n</span>d
             <span className="hover:uppercase duration-300 hover:text-xl">i</span>n
             <span className="hover:uppercase duration-300 hover:text-xl ">g</span>
+            <span className="text-[#6C5CE7] text-3xl">.</span>
           </h1>
           <Dropdown
             title="Filter"

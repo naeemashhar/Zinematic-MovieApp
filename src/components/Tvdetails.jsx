@@ -14,12 +14,16 @@ import Loader from "./Loader";
 import HorizontalCards from "./templates/HorizontalCards";
 
 const Tvdetails = () => {
+
+
+  document.title = "Zinematic | TvShow | Details";
+
+
   const { pathname } = useLocation(); //for playing trailer
 
   const { id } = useParams();
 
   const { info } = useSelector((state) => state.tv);
-  console.log(info);
 
   const dispatch = useDispatch();
 
@@ -47,11 +51,11 @@ const Tvdetails = () => {
       <nav className="w-full h-[10vh] text-zinc-300 text-xl gap-10 flex items-center justify-start">
         <Link
           onClick={() => navigate(-1)}
-          className="hover:text-[#6c5ce7] hover:text-2xl scale-100 duration-300 ri-arrow-left-line"
+          className="hover:text-[#6c5ce7] ri-arrow-left-line"
         ></Link>
 
         <a target="_blank" href={info.details.homepage} title="tv-site">
-          <i className="ri-external-link-line hover:text-[#6c5ce7] hover:text-2xl scale-100 duration-300"></i>
+          <i className="ri-external-link-line hover:text-[#6c5ce7]"></i>
         </a>
 
         <a
@@ -59,11 +63,11 @@ const Tvdetails = () => {
           title="wiki"
           href={`https://www.wikidata.org/wiki/${info.externalid.wikidata_id}`}
         >
-          <i className="ri-earth-fill hover:text-[#6c5ce7] hover:text-2xl scale-100 duration-300"></i>
+          <i className="ri-earth-fill hover:text-[#6c5ce7]"></i>
         </a>
 
         <a href="/" title="Home">
-          <i className="ri-home-2-fill hover:text-[#6c5ce7] hover:text-2xl scale-100 duration-300"></i>
+          <i className="ri-home-2-fill hover:text-[#6c5ce7]"></i>
         </a>
 
         <a
@@ -195,14 +199,14 @@ const Tvdetails = () => {
       <div className="w-[100%] mb-6 p-3 flex overflow-y-hidden ">
         {info.details.seasons.length > 0 ? (
           info.details.seasons.map((s, i) => (
-            <div className="w-[15vh] mr-[9%]">
+            <div key={i} className="w-[15vh] mr-[9%]">
               <img
                 key={i}
                 className="h-[39vh] min-w-[13vw] object-cover rounded shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:scale-95 transition-all duration-300"
                 src={s.poster_path ? `https://image.tmdb.org/t/p/original/${s.poster_path}`:noimg}
                 alt=""
               />
-              <h1 className="poppins-semibold  text-center text-xl text-[#AAAAAA] mt-3">
+              <h1 className="poppins-semibold text-xl w-[13vw] text-[#AAAAAA] mt-3">
                 {s.name || s.title || s.original_name || s.original_title}
               </h1>
             </div>

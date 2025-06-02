@@ -14,7 +14,7 @@ const People = () => {
   const [page, setpage] = useState(1); //for infinite scroll
   const [hasMore, sethasMore] = useState(true);
 
-  document.title = "Zinematic | person Shows | " + category.toUpperCase();
+  document.title = "Zinematic | Peoples | " + category.toUpperCase();
 
   const GetPerson = async () => {
     try {

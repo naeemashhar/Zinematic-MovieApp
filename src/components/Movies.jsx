@@ -46,6 +46,7 @@ const Movies = () => {
   useEffect(() => {
     refreshhandler();
   }, [category]);
+
   return movie.length > 0 ? (
     <div className="w-screen h-screen">
       <div className="px-[4%] py-1 w-full flex items-center justify-between fixed top-0 left-0 z-40 backdrop-blur-md bg-[#0B0B0E]/80">

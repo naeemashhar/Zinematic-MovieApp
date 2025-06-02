@@ -24,7 +24,6 @@ export const asyncloadpeople = (id) => async (dispatch, getState) =>{
 
             dispatch(loadpeople(alldetail));
 
-            console.log(alldetail);
 
 
     } catch (error) {
