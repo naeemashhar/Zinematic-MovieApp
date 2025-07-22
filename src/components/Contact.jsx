@@ -4,60 +4,59 @@ const Contact = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative w-full h-full bg-black text-[#AAAAAA] p-[10%]">
-      
-      <div className="absolute top-[5%] w-[10%] ">
-        <h1 className=" text-xl font-semibold text-[#AAAAAA]">
-          <i
-            onClick={() => navigate(-1)}
-            className="hover:text-[#6c5ce7] mr-3 text-xl ri-arrow-left-s-line"
-          ></i>
+    <div className="relative w-full min-h-fit bg-black text-[#AAAAAA] px-4 py-8 sm:px-10 md:px-[10%]">
+      {/* Back Button */}
+      <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
+        <button
+          onClick={() => navigate(-1)}
+          className="text-[#AAAAAA] text-base sm:text-xl font-semibold hover:text-[#6c5ce7] flex items-center"
+        >
+          <i className="ri-arrow-left-s-line mr-1 sm:mr-3"></i>
           Back
-        </h1>
+        </button>
       </div>
 
-      <div className=" flex flex-col lg:flex-row gap-20">
-        <div className="lg:basis-1/2 flex flex-col">
-          <h1 className="text-6xl md:text-[9rem] font-semibold leading-none tracking-tight text-white mb-6">
+      <div className="flex flex-col lg:flex-row gap-16 mt-16 sm:mt-20">
+        {/* Left Section */}
+        <div className="lg:w-1/2 flex flex-col">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-semibold leading-tight text-white mb-6">
             Zinematic<span className="text-[#6c5ce7]">.</span>
           </h1>
-          <p className="text-lg md:text-xl text-[#cccccc] max-w-lg">
+          <p className="text-base sm:text-lg md:text-xl text-[#cccccc] max-w-lg">
             We'd love to hear from you — whether you're a viewer, creator, or
             collaborator. Let’s connect.
           </p>
 
-          <div className="flex flex-wrap gap-8 text-sm mt-12 border-t border-[#333] pt-8">
-            <div className="basis-1/3">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-8 text-sm mt-12 border-t border-[#333] pt-8">
+            {/* Socials */}
+            <div className="w-full sm:w-1/2 md:w-1/3">
               <h4 className="mb-4 text-zinc-500 uppercase text-sm tracking-wide hover:scale-105 transition-transform">
                 Socials
               </h4>
-
-              <nav className="flex flex-col ">
-                <Link className="text-lg">
-                  <i className="mr-2 text-[#6c5ce7] hover:text-white ri-instagram-line"></i>
+              <nav className="flex flex-col">
+                <Link className="text-lg mb-1">
+                  <i className="mr-2 text-[#6c5ce7] ri-instagram-line"></i>
                   <span className="hover:text-[#6c5ce7]">Instagram</span>
                 </Link>
                 <Link className="text-lg">
-                  <i className="mr-2 text-[#6c5ce7] hover:text-white ri-linkedin-box-fill"></i>
-                  <span className="hover:text-[#6c5ce7]">Linkedin</span>
+                  <i className="mr-2 text-[#6c5ce7] ri-linkedin-box-fill"></i>
+                  <span className="hover:text-[#6c5ce7]">LinkedIn</span>
                 </Link>
               </nav>
             </div>
 
-            <div className="basis-1/3">
+            {/* Sitemap */}
+            <div className="w-full sm:w-1/2 md:w-1/3">
               <h4 className="mb-4 text-zinc-500 uppercase text-sm tracking-wide hover:scale-105 transition-transform">
                 Sitemap
               </h4>
-
-              <nav className="flex flex-col ">
-                <Link className="text-lg ">
-                  <i className="mr-2 text-[#6c5ce7] hover:text-white ri-home-5-line "></i>
-                  <span className="hover:text-[#6c5ce7] hover:scale-115">
-                    Home
-                  </span>
+              <nav className="flex flex-col">
+                <Link className="text-lg mb-1">
+                  <i className="mr-2 text-[#6c5ce7] ri-home-5-line"></i>
+                  <span className="hover:text-[#6c5ce7]">Home</span>
                 </Link>
                 <Link className="text-lg">
-                  <i className="mr-2 text-[#6c5ce7] hover:text-white ri-information-line"></i>
+                  <i className="mr-2 text-[#6c5ce7] ri-information-line"></i>
                   <span className="hover:text-[#6c5ce7]">About</span>
                 </Link>
               </nav>
@@ -65,7 +64,8 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="lg:basis-1/2 flex flex-col gap-12">
+        {/* Right Section - Form */}
+        <div className="lg:w-1/2 flex flex-col justify-center">
           <form className="w-full space-y-6">
             <input
               type="text"

@@ -23,7 +23,7 @@ const TopNav = () => {
   }, [val]);
 
   return (
-    <div className="w-[80%] h-[8vh] mx-auto relative flex items-center ">
+    <div className=" hidden w-[80%] h-[8vh] mx-auto relative lg:flex items-center ">
       <i className="text-xl text-[#AAAAAA] ri-search-2-line"></i>
 
       <input

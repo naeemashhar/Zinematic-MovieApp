@@ -1,59 +1,112 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SideNav = () => {
+  const [open, setOpen] = useState(false);
+
+  const navItems = [
+    { to: "/trending", icon: "ri-fire-fill", label: "Trending" },
+    { to: "/popular", icon: "ri-sparkling-2-fill", label: "Popular" },
+    { to: "/movie", icon: "ri-clapperboard-fill", label: "Movies" },
+    { to: "/tvShow", icon: "ri-tv-2-fill", label: "TV Shows" },
+    { to: "/persons", icon: "ri-user-search-fill", label: "People" },
+  ];
+
+  const infoLinks = [
+    { to: "/about", icon: "ri-information-2-fill", label: "About" },
+    { to: "/contact-us", icon: "ri-phone-fill", label: "Contact Us" },
+  ];
+
   return (
-    <div className=" w-[20%] h-full border-r-1 p-10 border-[#AAAAAA] ">
-      <h1>
-        <i className="text-[#6C5CE7] text-3xl mr-2 ri-zcool-fill "></i>
+    <>
+      {/* Mobile Toggle Button */}
+      <button
+        className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-xl transition-all duration-300 focus:outline-none"
+        onClick={() => setOpen(!open)}
+      >
+        <div className="space-y-1.5">
+          <span
+            className={`block h-0.5 w-6 bg-white transform transition duration-300 ease-in-out ${
+              open ? "rotate-45 translate-y-1.5" : ""
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-6 bg-white transition duration-300 ease-in-out ${
+              open ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-6 bg-white transform transition duration-300 ease-in-out ${
+              open ? "-rotate-45 -translate-y-1.5" : ""
+            }`}
+          />
+        </div>
+      </button>
 
-        <span
-          style={{
-            textShadow: " 0 2px 4px rgba(0, 0, 0, 0.6)",
-          }}
-          className="Oxanium-ExtraBold  text-4xl text-white font-bold "
-        >
-          Zinematic.
-        </span>
-      </h1>
+      {/* Sidebar */}
+      <div
+        className={`fixed md:static top-0 left-0 h-full z-40 transform ${
+          open ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 w-64 md:w-[20%] bg-blur-2xl backdrop-blur-lg border-r border-[#AAAAAA]/30 p-6 md:p-10 transition-transform duration-300 shadow-lg`}
+      >
+        {/* Logo */}
+        <div className="flex items-center mb-8 mt-7 lg:mt-0">
+          <i className="text-[#6C5CE7] text-3xl mr-2 ri-zcool-fill"></i>
+          <span
+            style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.6)" }}
+            className="text-white text-3xl md:text-4xl font-extrabold tracking-tight"
+          >
+            Zinematic.
+          </span>
+        </div>
 
-      <nav className="Oxanium-SemiBold  flex flex-col text-lg gap-3 text-[#AAAAAA] ">
-        <h1 className="text-white font-semibold text-xl mt-8 mb-3">
-          New Feeds
-        </h1>
+        {/* Navigation Section */}
+        <div className="text-[#AAAAAA] space-y-2 text-base md:text-lg">
+          <h2 className="text-white font-semibold text-lg md:text-xl mb-3">
+            New Feeds
+          </h2>
+          {navItems.map(({ to, icon, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className="flex items-center gap-2 px-4 py-3 rounded-lg hover:bg-[#6C5CE7]/90 hover:text-white transition-all duration-200"
+              onClick={() => setOpen(false)}
+            >
+              <i className={`${icon}`}></i>
+              {label}
+            </Link>
+          ))}
+        </div>
 
-        <Link to={"/trending"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
-          <i className="mr-2 ri-fire-fill"></i>Trending
-        </Link>
-        <Link to={"/popular"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
-          <i className="mr-2 ri-sparkling-2-fill"></i>Popular
-        </Link>
-        <Link to={"/movie"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
-          <i className="mr-2 ri-clapperboard-fill"></i>Movies
-        </Link>
-        <Link to={"/tvShow"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
-          <i className="mr-2 ri-tv-2-fill"></i>TV Shows
-        </Link>
-        <Link to={"/persons"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
-          <i className="mr-2 ri-user-search-fill"></i>People
-        </Link>
-      </nav>
+        <hr className="my-6 border-[#AAAAAA]/30" />
 
-      <hr className="border-none mt-1 h-[1px] bg-[#AAAAAA]" />
+        {/* Info Section */}
+        <div className="text-[#AAAAAA] space-y-2 text-base md:text-lg">
+          <h2 className="text-white font-semibold text-lg md:text-xl mb-3">
+            Website Information
+          </h2>
+          {infoLinks.map(({ to, icon, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className="flex items-center gap-2 px-4 py-3 rounded-lg hover:bg-[#6C5CE7]/90 hover:text-white transition-all duration-200"
+              onClick={() => setOpen(false)}
+            >
+              <i className={`${icon}`}></i>
+              {label}
+            </Link>
+          ))}
+        </div>
+      </div>
 
-      <nav className="Oxanium-SemiBold  flex flex-col text-lg gap-3 text-[#AAAAAA]">
-        <h1 className="text-white font-semibold text-xl mt-6 mb-1">
-          Website Information
-        </h1>
-
-        <Link to={"/about"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
-          <i className="mr-2 ri-information-2-fill"></i>About
-        </Link>
-        <Link to={"/contact-us"} className="p-3 rounded-md hover:bg-[#6C5CE7] hover:text-white duration-300 hover:scale-105">
-          <i className="mr-2 ri-phone-fill"></i>Contact Us
-        </Link>
-      </nav>
-    </div>
+      {/* Mobile Backdrop */}
+      {open && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 md:hidden"
+          onClick={() => setOpen(false)}
+        ></div>
+      )}
+    </>
   );
 };
 

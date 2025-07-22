@@ -49,7 +49,7 @@ const People = () => {
   return person.length > 0 ? (
     <div className="w-screen h-screen ">
       <div className="px-[4%] py-1 w-full flex items-center justify-between fixed top-0 left-0 z-40 backdrop-blur-md bg-[#0B0B0E]/80">
-        <h1 className=" text-xl font-semibold text-[#AAAAAA]">
+        <h1 className="mt-5 md:mt-0 text-xl font-semibold text-[#AAAAAA]">
           <i
             onClick={() => navigate(-1)}
             className="hover:text-[#6c5ce7] mr-3 text-xl ri-arrow-left-line"

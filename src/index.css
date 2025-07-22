@@ -358,3 +358,12 @@ select::-ms-expand {
     transform: translate(2px, 2px);
   }
 }*/
+
+/* index.css or App.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}

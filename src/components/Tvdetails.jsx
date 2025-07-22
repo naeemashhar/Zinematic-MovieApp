@@ -14,10 +14,7 @@ import Loader from "./Loader";
 import HorizontalCards from "./templates/HorizontalCards";
 
 const Tvdetails = () => {
-
-
   document.title = "Zinematic | TvShow | Details";
-
 
   const { pathname } = useLocation(); //for playing trailer
 
@@ -45,10 +42,10 @@ const Tvdetails = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="relative w-screen h-fit px-[10%]"
+      className="relative w-screen h-fit px-[5%] sm:px-[10%] bg-[#0B0B0E]"
     >
-      {/*p-1 navigation */}
-      <nav className="w-full h-[10vh] text-zinc-300 text-xl gap-10 flex items-center justify-start">
+      {/* p-1 navigation */}
+      <nav className="w-full h-[10vh] text-zinc-300 text-xl gap-6 sm:gap-10 flex items-center justify-start">
         <Link
           onClick={() => navigate(-1)}
           className="hover:text-[#6c5ce7] ri-arrow-left-line"
@@ -71,7 +68,7 @@ const Tvdetails = () => {
         </a>
 
         <a
-          className='poppins-semibold className=" px-3 rounded text-yellow-400 border-1 border-yellow-400 text-lg hover:bg-amber-400 hover:text-black hover:scale-95 duration-300'
+          className="Poppins-Bold px-3 rounded text-yellow-400 border border-yellow-400 text-lg hover:bg-amber-400 hover:text-black hover:scale-95 duration-300"
           target="_blank"
           title="IMDb"
           href={`https://www.imdb.com/title/${info.externalid.imdb_id}`}
@@ -80,30 +77,29 @@ const Tvdetails = () => {
         </a>
       </nav>
 
-      {/*p-2 poster and details */}
-      <div className="w-full flex">
+      {/* p-2 poster and details */}
+      <div className="w-full flex flex-col sm:flex-row mt-6">
         <img
-          className="h-[55vh] mt-10 object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:scale-95 transition-all duration-300"
+          className="h-[50vh] sm:h-[55vh] object-cover rounded-md shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:scale-95 transition-all duration-300"
           src={`https://image.tmdb.org/t/p/original/${
             info.details.poster_path || info.details.backdrop_path
           }`}
           alt=""
         />
 
-        <div className="content ml-[5%] text-white">
-          <h1 className="text-5xl font-black ">
+        <div className="content sm:ml-[5%] mt-6 sm:mt-0 text-white">
+          <h1 className="text-3xl sm:text-5xl font-black">
             {info.details.name ||
               info.details.title ||
               info.details.original_name ||
               info.details.original_title}
-
             <span className="text-xl font-bold text-[#AAAAAA]">
               ({info.details.first_air_date.split("-")[0]})
             </span>
           </h1>
 
-          <div className="text-zinc-200 text-sm flex items-center gap-x-2 mt-1 mb-4">
-            <span className="poppins-medium rounded-full text-lg w-[5.5vh] h-[5.5vh] flex justify-center items-center shadow-lg bg-yellow-500  text-white">
+          <div className="text-zinc-200 text-sm flex flex-wrap sm:flex-nowrap items-center gap-2 mt-2 mb-4">
+            <span className="poppins-medium rounded-full text-base sm:text-lg w-[5.5vh] h-[5.5vh] flex justify-center items-center shadow-lg bg-yellow-500  text-white">
               {info.details.vote_average !== 0 ? (
                 <>
                   {(info.details.vote_average * 10).toFixed()} <sup>%</sup>
@@ -112,13 +108,13 @@ const Tvdetails = () => {
                 "N/A"
               )}
             </span>
-            <h1 className="w-[4.8vw] ml-2 leading-5 font-semibold text-xl">
+            <h1 className="ml-2 leading-5 font-semibold text-lg sm:text-xl">
               User Score
             </h1>
             <h1>{info.details.first_air_date}</h1> |
-            <h1>{info.details.genres.map((g) => g.name).join(",")}</h1>|
-            <h1>No of Seasons : {info.details.number_of_seasons}</h1>|
-            <h1>No of Episodes : {info.details.number_of_episodes}</h1>
+            <h1>{info.details.genres.map((g) => g.name).join(", ")}</h1> |
+            <h1>No. of Seasons: {info.details.number_of_seasons}</h1> |
+            <h1>No. of Episodes: {info.details.number_of_episodes}</h1>
           </div>
 
           <h1 className="poppins-medium-italic text-lg text-[#AAAAAA]">
@@ -131,7 +127,9 @@ const Tvdetails = () => {
           <h1 className="poppins-medium-italic text-lg text-[#AAAAAA]">
             Available in Different Languages :
           </h1>
-          <p className="w-[80%] mb-6">{info.translations.join(" | ")}</p>
+          <p className="w-full sm:w-[80%] mb-6">
+            {info.translations.join(" | ")}
+          </p>
 
           <Link
             to={`${pathname}/trailer`}
@@ -142,71 +140,74 @@ const Tvdetails = () => {
         </div>
       </div>
 
-      {/*p-3 available platforms */}
-      <div className="w-full flex items-center mt-10 ">
-        {info.watchproviders && info.watchproviders.flatrate && (
-          <div className="flex gap-x-5  items-center text-white">
-            <h1 className="ml-10">Available Platform :</h1>
+      {/* p-3 available platforms */}
+      <div className="w-full flex flex-col gap-4 sm:flex-row sm:items-center mt-10 text-white">
+        {info.watchproviders?.flatrate && (
+          <div className="flex items-center gap-4">
+            <h1 className="ml-2 sm:ml-10">Available Platform:</h1>
             {info.watchproviders.flatrate.map((w, i) => (
               <img
-                title={w.provider_name}
                 key={i}
+                title={w.provider_name}
                 src={`https://image.tmdb.org/t/p/original/${w.logo_path}`}
+                className="w-[5vh] h-[5vh] rounded-md object-cover shadow-lg hover:scale-95 transition-all duration-300"
                 alt=""
-                className="w-[5vh] h-[5vh] rounded-md object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:scale-95 transition-all duration-300"
               />
             ))}
           </div>
         )}
 
-        {info.watchproviders && info.watchproviders.rent && (
-          <div className="flex gap-x-5 items-center text-white">
-            <h1 className="ml-10">Available on Rent : </h1>
+        {info.watchproviders?.rent && (
+          <div className="flex items-center gap-4">
+            <h1 className="ml-2 sm:ml-10">Available on Rent:</h1>
             {info.watchproviders.rent.map((w, i) => (
               <img
-                title={w.provider_name}
                 key={i}
+                title={w.provider_name}
                 src={`https://image.tmdb.org/t/p/original/${w.logo_path}`}
+                className="w-[5vh] h-[5vh] rounded-md object-cover shadow-lg hover:scale-95 transition-all duration-300"
                 alt=""
-                className="w-[5vh] h-[5vh] rounded-md object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:scale-95 transition-all duration-300"
               />
             ))}
           </div>
         )}
 
-        {info.watchproviders && info.watchproviders.buy && (
-          <div className="flex gap-x-5 items-center text-white">
-            <h1 className="ml-10">Available to buy :</h1>
+        {info.watchproviders?.buy && (
+          <div className="flex items-center gap-4">
+            <h1 className="ml-2 sm:ml-10">Available to Buy:</h1>
             {info.watchproviders.buy.map((w, i) => (
               <img
-                title={w.provider_name}
                 key={i}
+                title={w.provider_name}
                 src={`https://image.tmdb.org/t/p/original/${w.logo_path}`}
+                className="w-[5vh] h-[5vh] rounded-md object-cover shadow-lg hover:scale-95 transition-all duration-300"
                 alt=""
-                className="w-[5vh] h-[5vh] rounded-md object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:scale-95 transition-all duration-300"
               />
             ))}
           </div>
         )}
       </div>
 
-      {/*p-4 Seasons */}
-      <h1 className="text-3xl mb-3  text-zinc-200 font-semibold">
-        <hr className="mt-10 mb-3 border-1 text-zinc-500" />
+      {/* p-4 Seasons */}
+      <h1 className="text-2xl sm:text-3xl mt-10 mb-3 text-zinc-200 font-semibold">
+        <hr className="mb-3 border-1 text-zinc-500" />
         Seasons.
       </h1>
 
-      <div className="w-[100%] mb-6 p-3 flex overflow-y-hidden ">
+      <div className="w-full mb-6 p-2 sm:p-3 flex overflow-x-auto gap-6">
         {info.details.seasons.length > 0 ? (
           info.details.seasons.map((s, i) => (
-            <div key={i} className="w-[15vh] mr-[9%]">
+            <div key={i} className="w-[30vw] sm:w-[25vh] md:mr-5">
               <img
-                key={i}
-                className="h-[39vh] min-w-[13vw] object-cover rounded shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:scale-95 transition-all duration-300"
-                src={s.poster_path ? `https://image.tmdb.org/t/p/original/${s.poster_path}`:noimg}
+                className="h-[30vh] sm:h-[39vh] min-w-[35vw] sm:min-w-[13vw] object-cover rounded shadow-lg hover:scale-95 transition-all duration-300"
+                src={
+                  s.poster_path
+                    ? `https://image.tmdb.org/t/p/original/${s.poster_path}`
+                    : noimg
+                }
                 alt=""
               />
-              <h1 className="poppins-semibold text-xl w-[13vw] text-[#AAAAAA] mt-3">
+              <h1 className="poppins-semibold text-base sm:text-xl w-full text-[#AAAAAA] mt-2">
                 {s.name || s.title || s.original_name || s.original_title}
               </h1>
             </div>
@@ -218,8 +219,8 @@ const Tvdetails = () => {
         )}
       </div>
 
-      {/*p-5 Recommendation and similar stuff */}
-      <h1 className="text-2xl mb-3  text-zinc-200 font-semibold">
+      {/* p-5 Recommendations */}
+      <h1 className="text-2xl mb-3 text-zinc-200 font-semibold">
         <hr className="mt-10 mb-3 border-1 text-zinc-500" />
         Recommendations & Similar Stuff.
       </h1>
