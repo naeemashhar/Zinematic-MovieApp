@@ -39,7 +39,7 @@ const HorizontalCards = ({ data }) => {
         ref={scrollRef}
         className="w-full p-3 flex overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth"
       >
-        {data.length > 0 ? (
+        {data && data.length > 0 ? (
           data.map((d, i) => (
             <Link
               to={`/${d.media_type}/details/${d.id}`}
@@ -53,7 +53,7 @@ const HorizontalCards = ({ data }) => {
                     ? `https://image.tmdb.org/t/p/original/${d.backdrop_path || d.poster_path}`
                     : noimg
                 }
-                alt=""
+                alt={d.name || d.title || "no image"}
               />
 
               <div className="text-white p-3 h-[45%] overflow-auto">
@@ -61,8 +61,8 @@ const HorizontalCards = ({ data }) => {
                   {d.name || d.title || d.original_name || d.original_title}
                 </h1>
                 <p className="text-sm mt-1">
-                  {d.overview.slice(0, 50)}...
-                  <span className="text-zinc-500"> more </span>
+                  {d.overview ? `${d.overview.slice(0, 50)}...` : "No overview available."}
+                  {d.overview && <span className="text-zinc-500"> more </span>}
                 </p>
               </div>
             </Link>
