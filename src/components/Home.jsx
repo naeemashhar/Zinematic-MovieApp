@@ -16,26 +16,42 @@ const Home = () => {
 
   const [category, setcategory] = useState("all"); //for hori-div category selection
 
-  const GetHeaderWallpaper = async () => {
-    try {
-      const { data } = await axios.get(`/trending/all/day`);
-      let randomdata =
-        data.results[(Math.random() * data.results.length).toFixed()];
-      setwallpaper(randomdata);
-    } catch (err) {
-      console.log("Error fetching search results:", err);
-    }
-  };
+const GetHeaderWallpaper = async () => {
+  try {
+    const { data } = await axios.get(`/trending/all/day`);
+    // filter out only movie or tv (exclude persons)
+    const onlyMoviesOrTv = data.results.filter(
+      (item) => item.media_type === "movie" || item.media_type === "tv"
+    );
+
+    let randomdata =
+      onlyMoviesOrTv[Math.floor(Math.random() * onlyMoviesOrTv.length)];
+    setwallpaper(randomdata);
+  } catch (err) {
+    console.log("Error fetching search results:", err);
+  }
+};
 
 
-  const GetHorizontalCard = async () => {
-    try {
-      const { data } = await axios.get(`/trending/${category}/day`);
-      sethorizontal(data.results);
-    } catch (err) {
-      console.log("Error fetching search results:", err);
-    }
-  };
+
+const GetHorizontalCard = async () => {
+  try {
+    const { data } = await axios.get(`/trending/${category}/day`);
+
+    // again, filter out persons if category is "all"
+    const results =
+      category === "all"
+        ? data.results.filter(
+            (item) => item.media_type === "movie" || item.media_type === "tv"
+          )
+        : data.results;
+
+    sethorizontal(results);
+  } catch (err) {
+    console.log("Error fetching search results:", err);
+  }
+};
+
 
   useEffect(() => {
     GetHorizontalCard();
